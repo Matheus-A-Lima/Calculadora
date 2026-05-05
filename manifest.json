@@ -1,0 +1,16 @@
+{
+  "name": "Calculadora de Produção",
+  "short_name": "CalcProd",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "description": "Calculadora para controle de peso de embalagens na produção.",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3209/3209214.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
