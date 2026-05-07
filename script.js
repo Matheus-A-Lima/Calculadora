@@ -40,16 +40,27 @@ themeToggleBtn.addEventListener('click', function() {
 });
 
 function calcular() {
-    // Pegar os valores dos inputs
+    // Pegar os valores dos inputs com valores padrão
     const producao = parseFloat(document.getElementById('producao').value);
-    const pacote = parseFloat(document.getElementById('pacote').value);
-    const fardo = parseFloat(document.getElementById('fardo').value);
-    const peso1 = parseFloat(document.getElementById('peso1').value);
-    const peso2 = parseFloat(document.getElementById('peso2').value);
+    
+    // Qtd. por Pacote: padrão é 1 se não preenchido
+    const pacoteInput = document.getElementById('pacote').value;
+    const pacote = pacoteInput === "" ? 1 : parseFloat(pacoteInput);
+    
+    // Qtd. por Fardo: mantém a lógica de necessidade de valor (ou assume 1 se preferir, mas usuário não especificou fardo)
+    const fardoInput = document.getElementById('fardo').value;
+    const fardo = fardoInput === "" ? 1 : parseFloat(fardoInput);
 
-    // Validação simples
-    if (isNaN(producao) || isNaN(pacote) || isNaN(fardo) || isNaN(peso1) || isNaN(peso2)) {
-        alert("Por favor, preencha todos os campos com valores válidos.");
+    // Pesos: padrão é 0 se não preenchido
+    const peso1Input = document.getElementById('peso1').value;
+    const peso1 = peso1Input === "" ? 0 : parseFloat(peso1Input);
+    
+    const peso2Input = document.getElementById('peso2').value;
+    const peso2 = peso2Input === "" ? 0 : parseFloat(peso2Input);
+
+    // Validação: Apenas a produção é estritamente obrigatória agora
+    if (isNaN(producao)) {
+        alert("Por favor, preencha a Quantidade Total da Produção.");
         return;
     }
 

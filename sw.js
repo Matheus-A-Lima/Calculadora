@@ -1,5 +1,6 @@
-const CACHE_NAME = 'calc-producao-v1';
+const CACHE_NAME = 'calc-producao-v1.1';
 const ASSETS = [
+  './',
   'index.html',
   'script.js',
   'manifest.json',
@@ -7,9 +8,24 @@ const ASSETS = [
 ];
 
 self.addEventListener('install', (event) => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll(ASSETS);
+    })
+  );
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.filter((cacheName) => {
+          return cacheName !== CACHE_NAME;
+        }).map((cacheName) => {
+          return caches.delete(cacheName);
+        })
+      );
     })
   );
 });
