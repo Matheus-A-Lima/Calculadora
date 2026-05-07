@@ -84,9 +84,13 @@ function calcular() {
     container.classList.remove('hidden');
     resElement.innerText = total.toFixed(3) + "kg";
 
+    // Lógica de exibição: se o input estava vazio, mostrar 0 na tela de detalhes
+    const exibirQtdP = pacoteInput === "" ? 0 : quantidadeP;
+    const exibirQtdF = fardoInput === "" ? 0 : quantidadeF;
+
     detalhesElement.innerHTML = `
-        <p>Qtd. Pacotes: ${quantidadeP.toFixed(2)}</p>
-        <p>Qtd. Fardos: ${quantidadeF.toFixed(2)}</p>
+        <p>Qtd. Pacotes: ${exibirQtdP.toFixed(2)}</p>
+        <p>Qtd. Fardos: ${exibirQtdF.toFixed(2)}</p>
         <p>Peso Pacotes: ${totalP.toFixed(3)}kg | Peso Fardos: ${totalF.toFixed(3)}kg</p>
     `;
 
