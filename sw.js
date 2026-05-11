@@ -1,10 +1,11 @@
-const CACHE_NAME = 'calc-producao-v1.1';
+const CACHE_NAME = 'calc-producao-v1.2';
 const ASSETS = [
   './',
   'index.html',
   'script.js',
   'manifest.json',
-  'https://cdn.tailwindcss.com'
+  'https://cdn.tailwindcss.com',
+  'https://cdn-icons-png.flaticon.com/512/3209/3209214.png'
 ];
 
 self.addEventListener('install', (event) => {
